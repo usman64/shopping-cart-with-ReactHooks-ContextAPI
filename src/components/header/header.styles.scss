@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  background-color: #153450;
+  font-weight: bold;
+
+  .options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+    .option {
+      margin: 0 20px;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
