@@ -6,9 +6,9 @@ name: Deploy Website
 # events but only for the master branch
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,20 +19,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
 
-      - name: Install NodeJs
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: 12
-      - name: Run Yarn install through a github action
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
-      - name: Making Build folder
-        run: yarn build
-      - name: Install surge
-        run: npm install -g surge
-      - name: deploy website
-        run: surge ./build react-estore-usman.surge.sh --token ${{secrets.SURGE_TOKEN}}
+    - name: Install NodeJs
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: 12
+    - name: npm install
+      run: npm install
+    - name: Make Build folder
+      run: npm run build --prod
+    - name: Install surge
+      run: npm install -g surge
+    - name: deploy website
+      run: surge ./build react-estore-usman.surge.sh --token ${{secrets.SURGE_TOKEN}}
