@@ -21,6 +21,11 @@
     position: absolute;
     top: 200px;
     display: none;
+
+    @media (max-width: 800px) {
+      font-size: 10px;
+      width: 50%;
+    }
   }
 
   &:hover {

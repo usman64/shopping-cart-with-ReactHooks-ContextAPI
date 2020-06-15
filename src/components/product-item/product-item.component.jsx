@@ -7,7 +7,7 @@ import { GlobalContext } from '../../context/globalState';
 const ProductItem = ({ item }) => {
   const [clicked, setClicked] = useState(false);
   const { name, price, imageUrl } = item;
-  const { addItem } = useContext(GlobalContext);
+  const { addItem, toggleSnackbar } = useContext(GlobalContext);
   return (
     <div className='collection-item'>
       <div className='image' style={{ backgroundImage: `url(${imageUrl})` }} />
@@ -19,6 +19,7 @@ const ProductItem = ({ item }) => {
         onClick={() => {
           setClicked(true);
           addItem(item);
+          toggleSnackbar();
         }}
         inverted
       >

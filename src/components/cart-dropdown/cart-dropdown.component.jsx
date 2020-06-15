@@ -11,8 +11,8 @@ const CartDropdown = ({ history }) => {
   return (
     <div
       className='cart-dropdown'
-      onMouseEnter={toggleCartHidden}
-      onMouseLeave={toggleCartHidden}
+      // onMouseEnter={toggleCartHidden}
+      // onMouseLeave={toggleCartHidden}
     >
       {cart.length ? (
         <div className='cart-items'>

@@ -22,6 +22,11 @@ export default (state, action) => {
         ...state,
         isCartHidden: !state.isCartHidden,
       };
+    case 'TOGGLE_SNACKBAR':
+      return {
+        ...state,
+        isSnackbarHidden: !state.isSnackbarHidden,
+      };
     default:
       return state;
   }

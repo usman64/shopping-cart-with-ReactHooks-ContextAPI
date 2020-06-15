@@ -4,6 +4,7 @@ import reducer from './reducer.js';
 const initialState = {
   isCartHidden: true,
   cart: [],
+  isSnackbarHidden: true,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -36,15 +37,23 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
+  const toggleSnackbar = () => {
+    dispatch({
+      type: 'TOGGLE_SNACKBAR',
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
         isCartHidden: state.isCartHidden,
         cart: state.cart,
+        isSnackbarHidden: state.isSnackbarHidden,
         addItem,
         deleteItem,
         clearItem,
         toggleCartHidden,
+        toggleSnackbar,
       }}
     >
       {children}
