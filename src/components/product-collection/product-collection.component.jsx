@@ -9,9 +9,9 @@ import './product-collection.styles.scss';
 const ProductCollection = () => (
   <div className='collections-overview'>
     <Grid container spacing={3}>
-      {SHOP_DATA.map(({ id, ...otherDataProps }) => (
-        <Grid xs={6} sm={4} md={3} lg={3} item>
-          <ProductItem key={id} {...otherDataProps} />
+      {SHOP_DATA.map((item) => (
+        <Grid key={item.id} xs={6} sm={4} md={3} lg={3} item>
+          <ProductItem item={item} />
         </Grid>
       ))}
     </Grid>

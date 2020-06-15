@@ -11,7 +11,7 @@ function App() {
     <div className='App'>
       <Header />
       <Switch>
-        <Route path='/' component={ShopPage} />
+        <Route exact path='/' component={ShopPage} />
         <Route path='/checkout' component={CheckoutPage} />
       </Switch>
       <Footer />

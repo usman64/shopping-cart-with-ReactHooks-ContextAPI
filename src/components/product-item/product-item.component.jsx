@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import CustomButton from '../custom-button/custom-button.component';
 import './product-item.styles.scss';
+import { GlobalContext } from '../../context/globalState';
 
-const ProductItem = ({ name, price, imageUrl }) => {
+const ProductItem = ({ item }) => {
   const [clicked, setClicked] = useState(false);
+  const { name, price, imageUrl } = item;
+  const { addItem } = useContext(GlobalContext);
   return (
     <div className='collection-item'>
       <div className='image' style={{ backgroundImage: `url(${imageUrl})` }} />
@@ -15,6 +18,7 @@ const ProductItem = ({ name, price, imageUrl }) => {
       <CustomButton
         onClick={() => {
           setClicked(true);
+          addItem(item);
         }}
         inverted
       >
