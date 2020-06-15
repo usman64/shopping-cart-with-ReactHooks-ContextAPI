@@ -14,7 +14,7 @@ const ShopPage = () => {
     <div className='shop-page'>
       <ProductCollection />
       <Snackbar
-        open={isSnackbarHidden}
+        open={!isSnackbarHidden}
         autoHideDuration={3000}
         onClose={toggleSnackbar}
       >
